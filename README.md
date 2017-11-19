@@ -30,6 +30,7 @@
 - [X] Syntax highlighter
 - [X] Offline (Bookmarks)
 - [X] Comments (Submitting is not supported yet)
+- [X] Progressive Web App (manifest & Service Workers)
 
 ## Built with WPHC
 
@@ -46,6 +47,7 @@
   * https://play.google.com/store/apps/details?id=com.xvilo.jonginnop2
   * https://play.google.com/store/apps/details?id=com.xvilo.regio25
   * https://play.google.com/store/apps/details?id=de.esv1927.app
+  * http://play.google.com/store/apps/details?id=com.mirzapurnews
 * IOS
   * https://itunes.apple.com/cn/app/id1030393337
   * https://itunes.apple.com/us/app/not-my-fault./id886617889
@@ -59,6 +61,7 @@
   * https://itunes.apple.com/nl/app/regio25/id1067826417?mt=8
   * https://itunes.apple.com/nl/app/jonginnop/id1073451236?mt=8
   * https://itunes.apple.com/us/app/id1132170549
+  * https://itunes.apple.com/us/app/suz-blog/id1145036348
 
 ## Quick Start
 
@@ -67,6 +70,7 @@
 - Git
 - NodeJS (>= 4)
 - NPM (>= 3)
+- [Yarn](https://yarnpkg.com/en/docs/install)
 
 This installation works on both OSX and Linux. Windows is not supported yet,
 
@@ -78,7 +82,7 @@ $ git tag
 $ git checkout <the-latest-version>
 
 # Install
-$ npm install && npm run installWPHC
+$ yarn
 
 # Run on the browser
 $ npm start
@@ -123,6 +127,9 @@ Read the manual: [SPLASHICONS.md](SPLASHICONS.md)
 ## Project public API
 
 ```
+# Installation
+npm run installWPHC (auto ran post npm install)
+
 # Dev server
 npm start
 
@@ -157,4 +164,4 @@ It's always best to create two smaller PRs than one big one.
 
 ### Style
 
-Always use four spaces, no tabs. This goes for any HTML, CSS, or Javascript.
+Follow .editconfig 

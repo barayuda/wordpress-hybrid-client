@@ -1,12 +1,13 @@
 {
   "name": "wordpress-hybrid-client",
-  "version": "2.0.0-beta12",
+  "version": "2.0.3",
   "title": "wordpress-hybrid-client",
-  "description": "AngularJS client using Ionic Framework and based on the json-rest-api plugin: https://wordpress.org/plugins/json-rest-api/ with CORS enabled.",
+  "description": "Build amazing iOS and Android applications for your WordPress website for free!",
   "main": "index.js",
   "scripts": {
     "build": "bash ./release.sh",
-    "restore": "ionic state restore",
+    "restore": "rm -rf platforms/ plugins/ && ionic state restore",
+    "postinstall": "npm run installWPHC",
     "installWPHC": "cd scripts && node ./install.js",
     "increaseVersion": "cd scripts && node ./increaseVersion.js",
     "start": "webpack-dev-server --port 8080 --json --progress",
@@ -41,17 +42,16 @@
   "bugs": {
     "url": "https://github.com/shprink/wordpress-hybrid-client/issues"
   },
-  "homepage": "https://github.com/shprink/wordpress-hybrid-client",
+  "homepage": "http://wphc.julienrenaux.fr/",
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
     "babel": "^5.8.23",
     "babel-core": "^5.0.0",
     "babel-loader": "^5.3.2",
     "coffee-loader": "^0.7.2",
-    "coffee-script": "^1.10.0",
+    "coffee-script": "^1.12.2",
     "commander": "^2.9.0",
-    "ionic": "~1.7.12",
-    "cordova": "~5.4.1",
+    "cordova": "~6.4.0",
     "cson": "^3.0.2",
     "cson-loader": "^0.1.0",
     "css-loader": "^0.18.0",
@@ -63,12 +63,14 @@
     "html-loader": "^0.3.0",
     "html-webpack-plugin": "^1.6.1",
     "imports-loader": "^0.6.4",
+    "ionic": "~2.1.17",
     "json-loader": "^0.5.3",
     "ng-annotate-loader": "~0.0.10",
     "node-sass": "^3.3.3",
     "path": "^0.12.7",
     "sass-loader": "^2.0.1",
     "semver": "^5.0.3",
+    "string-replace-loader": "^1.0.5",
     "style-loader": "^0.12.4",
     "util": "^0.10.3",
     "webpack": "^1.12.0",
@@ -93,7 +95,7 @@
     "wp-api-angularjs": "^2.0.0-rc3"
   },
   "cordovaPlugins": [
-    "cordova-plugin-whitelist@1.0.0",
+    "cordova-plugin-whitelist@1.3.0",
     "cordova-plugin-inappbrowser@1.3.0",
     "cordova-plugin-splashscreen@2.1.0",
     "cordova-plugin-file@2.1.0",
@@ -111,18 +113,29 @@
     "cordova-plugin-statusbar@1.0.1",
     "cordova-plugin-google-analytics@0.8.1",
     "phonegap-plugin-push@1.5.3",
-    "cordova-plugin-crosswalk-webview@1.6.0",
+    "cordova-plugin-crosswalk-webview@2.2.0",
     "cordova-plugin-spinner-dialog@1.3.1",
     "cordova-plugin-admobpro@2.14.0",
     "cordova-plugin-x-socialsharing@5.1.1",
     "ionic-plugin-keyboard@2.2.0"
   ],
+  "engines": {
+    "node": ">= 4",
+    "npm": ">= 3"
+  },
+  "os": [
+    "!win32"
+  ],
   "cordovaPlatforms": [
     {
       "platform": "android",
-      "version": "5.x",
-      "locator": "android@5.x"
+      "version": "6.1",
+      "locator": "android@6.1"
     },
-    "ios"
+    {
+      "platform": "ios",
+      "version": "4.1.1",
+      "locator": "ios@4.1.1"
+    }
   ]
 }
